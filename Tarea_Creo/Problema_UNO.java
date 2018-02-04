@@ -22,34 +22,6 @@ public class Problema_UNO{
 	}
 
     
-	public static LinkedList<Integer> suma_hojas(int meta){
-	    LinkedList<Integer> paginas = new LinkedList<>();
-	    meta = 2017;
-		int meta_2017 = 0; 
-
-		for(int i = 400; i > 0; i = i - 2){
-
-			int suma_paginas = i + (i - 1);
-			meta_2017 += suma_paginas;
-			int sumator = sumaE(1, 50 - paginas.size());
-			int k = meta - meta_2017; 
-			if (k  < sumator){
-				meta_2017 -= suma_paginas;
-			}else
-			if(meta_2017 <= 2017){
-				paginas.add(i);
-				paginas.add(i - 1);
-			}
-			else { 
-				meta_2017 -= suma_paginas;
-			}
-			if(paginas.size() == 50){
-				return paginas;
-			}
-		}
-		return paginas;
-	}
-
 	public static LinkedList<Integer> suma_hojas2(int meta){
 	    LinkedList<Integer> paginas_arrancadas = new LinkedList<>();
 
@@ -75,14 +47,9 @@ public class Problema_UNO{
 	private static LinkedList<Integer> paginas = llena_paginas();
 	private static int i = 0;
 
-	public static int[] ultima_hoja(LinkedList<Integer> paginas){
-		int cuantos = paginas.size();
-		int[] hoja = {cuantos, (cuantos - 1)} ;
-		return hoja;
-	}
 
 	public static LinkedList<Integer> arranca_paginas(LinkedList<Integer> paginas_arrancadas){
-		int sumaHoja = ultima_hoja(paginas)[0] + ultima_hoja(paginas)[1];
+		int sumaHoja = paginas.size() + (paginas.size() -1);
 
 		if(i + sumaHoja <= 2018){
 			i += sumaHoja;
