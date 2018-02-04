@@ -20,14 +20,11 @@ public class Problema_UNO{
 		}
 		return suma;
 	}
-
     
-	public static LinkedList<Integer> suma_hojas(int meta){
+	public static LinkedList<Integer> arranca_hojas(int meta){
 	    LinkedList<Integer> paginas_arrancadas = new LinkedList<>();
-
 		for(int i = 400; i > 0; i = i - 2){
-			int suma_paginas = i + (i - 1); 
-			int diferencia = meta - suma_paginas;
+			int diferencia = meta - (i + (i - 1));
 			if(diferencia >= sumaE(1,48 - paginas_arrancadas.size())){ // 48 porque siempre voy a meter la ultima hoja
 				meta = diferencia;
 				paginas_arrancadas.add(i);
@@ -42,7 +39,7 @@ public class Problema_UNO{
 		int regreso = 0;
 		int i = 1;
 
-		for (Integer pag :suma_hojas(meta)){
+		for (Integer pag : arranca_hojas(meta)){
 			regreso += pag;
 			System.out.println("(" + (i++)  + ") :" + pag);
 		}
