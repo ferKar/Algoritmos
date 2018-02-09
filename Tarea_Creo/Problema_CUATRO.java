@@ -22,7 +22,6 @@ public class Problema_CUATRO{
 
   private static int[] borrarMenosNum(int arr[], boolean creciente) {
     int[] sec = new int[arr.length];
- 	int max_sec = 0; // logitud maxima de la secuencia.
  	int indiceD = 0; // el indice donde se encuentra el maximo de la secuencia.
 
     for (int i = 0; i < arr.length; i++)
@@ -41,14 +40,13 @@ public class Problema_CUATRO{
             }
       }
     
-      if(sec[i] >= max_sec){ // con esto obtengo los mejores indices.
-      	max_sec = sec[i]; // intente sacar la lista de estos indices pero algo salio mal xD asi...el for de abajo no? jejeje fuerza bruta, donde? no puede ser peor no pasa de n² :P.
-      	indiceD = i;
-      }
+      if(sec[i] >= sec[indiceD]) // con esto obtengo los mejores indices.
+      	indiceD = i;// intente sacar la lista de estos indices pero algo salio mal xD asi...el for de abajo no? jejeje fuerza bruta, donde? no puede ser peor no pasa de n² :P.
     }
 
     // de atras para delante sacamos los numeros de la entrada, con respecto a los numeros que estan en la secuencia
-    int noBorrados[] = new int[max_sec];
+ 	int max_sec = sec[indiceD];// logitud maxima de la secuencia.
+    int noBorrados[] = new int[sec[indiceD]];
     int j = noBorrados.length - 1;
     for(int i = indiceD; i >= 0; i--)
       if(sec[i] == max_sec){
